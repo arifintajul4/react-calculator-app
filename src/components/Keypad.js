@@ -26,11 +26,11 @@ const Keypad = ({
 
   const handleDelete = () => {
     if (operator) {
-      numberTwo?.length > 0 || numberTwo !== "0"
-        ? setNumberTwo(numberTwo.slice(0, -1))
+      numberTwo?.toString()?.length > 2 && numberTwo.toString() !== "0"
+        ? setNumberTwo(numberTwo?.toString()?.slice(0, -1))
         : setNumberTwo("0");
     } else {
-      numberOne?.toString()?.length > 0 || numberOne?.toString() !== "0"
+      numberOne?.length > 0 && numberOne !== "0"
         ? setNumberOne(numberOne?.toString()?.slice(0, -1))
         : setNumberOne("0");
     }
@@ -39,6 +39,7 @@ const Keypad = ({
   const handleSetOperator = (op) => {
     if (!operator) {
       setOperator(op);
+      setNumberTwo("0");
     }
   };
 
