@@ -13,20 +13,12 @@ const NumberScreen = ({ numberOne, operator, numberTwo }) => {
             {numberWithCommas(numberOne)} {numberTwo !== "0" ? operator : ""}
           </p>
           <h1 className="text-white font-bold text-2xl overflow-hidden">
-            {numberTwo !== "0"
-              ? `${
-                  numberTwo?.toString()?.slice(-1) === "."
-                    ? numberWithCommas(numberTwo) + "."
-                    : numberWithCommas(numberTwo)
-                }`
-              : operator}
+            {numberTwo !== "0" ? `${numberWithCommas(numberTwo)}` : operator}
           </h1>
         </div>
       ) : (
         <h1 className="text-right text-white font-bold text-5xl overflow-hidden">
-          {numberOne?.toString()?.slice(-1) === "."
-            ? numberWithCommas(numberOne) + "."
-            : numberWithCommas(numberOne)}
+          {numberWithCommas(numberOne)}
         </h1>
       )}
     </div>
