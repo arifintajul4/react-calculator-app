@@ -12,7 +12,7 @@ const NumberScreen = ({ numberOne, operator, numberTwo }) => {
           <p className="text-sm">
             {numberWithCommas(numberOne)} {numberTwo !== "0" ? operator : ""}
           </p>
-          <h1 className="text-white font-bold text-2xl">
+          <h1 className="text-white font-bold text-2xl overflow-hidden">
             {numberTwo !== "0"
               ? `${
                   numberTwo?.toString()?.slice(-1) === "."
@@ -23,7 +23,7 @@ const NumberScreen = ({ numberOne, operator, numberTwo }) => {
           </h1>
         </div>
       ) : (
-        <h1 className="text-right text-white font-bold text-5xl">
+        <h1 className="text-right text-white font-bold text-5xl overflow-hidden">
           {numberOne?.toString()?.slice(-1) === "."
             ? numberWithCommas(numberOne) + "."
             : numberWithCommas(numberOne)}
