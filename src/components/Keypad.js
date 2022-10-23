@@ -30,8 +30,8 @@ const Keypad = ({
         ? setNumberTwo(numberTwo.slice(0, -1))
         : setNumberTwo("0");
     } else {
-      numberOne?.length > 0 || numberOne !== "0"
-        ? setNumberOne(numberOne.slice(0, -1))
+      numberOne?.toString()?.length > 0 || numberOne?.toString() !== "0"
+        ? setNumberOne(numberOne?.toString()?.slice(0, -1))
         : setNumberOne("0");
     }
   };
