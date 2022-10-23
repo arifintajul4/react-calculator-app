@@ -37,7 +37,7 @@ const Keypad = ({
   };
 
   const handleSetOperator = (op) => {
-    if (!operator) {
+    if (!operator || operator !== op) {
       setOperator(op);
       setNumberTwo("0");
     }
