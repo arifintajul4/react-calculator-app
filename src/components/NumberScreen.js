@@ -1,20 +1,23 @@
 import React from "react";
 
 const NumberScreen = ({ numberOne, operator, numberTwo }) => {
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   return (
     <div className="my-5 overflow-hidden rounded-lg bg-very-dstd-blue-screen text-white py-5 px-7">
       {operator ? (
         <div className="text-right">
           <p className="text-sm">
-            {Number(numberOne).toLocaleString()}{" "}
-            {numberTwo !== "0" ? operator : ""}
+            {numberWithCommas(numberOne)} {numberTwo !== "0" ? operator : ""}
           </p>
           <h1 className="text-white font-bold text-2xl">
             {numberTwo !== "0"
               ? `${
                   numberTwo?.toString()?.slice(-1) === "."
-                    ? Number(numberTwo).toLocaleString() + "."
-                    : Number(numberTwo).toLocaleString()
+                    ? numberWithCommas(numberTwo) + "."
+                    : numberWithCommas(numberTwo)
                 }`
               : operator}
           </h1>
@@ -22,8 +25,8 @@ const NumberScreen = ({ numberOne, operator, numberTwo }) => {
       ) : (
         <h1 className="text-right text-white font-bold text-5xl">
           {numberOne?.toString()?.slice(-1) === "."
-            ? Number(numberOne).toLocaleString() + "."
-            : Number(numberOne).toLocaleString()}
+            ? numberWithCommas(numberOne) + "."
+            : numberWithCommas(numberOne)}
         </h1>
       )}
     </div>
